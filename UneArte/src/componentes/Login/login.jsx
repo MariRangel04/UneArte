@@ -9,8 +9,10 @@ const Login = () => {
         const [password, setPassword] = useState("");
 
         const handleSubmit = () =>{
-            console.log("envio");
-        }
+            event.preventDefault();
+            console.log(username, password);
+
+        };
 
     return(
         <div className="container">
@@ -18,10 +20,12 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
                 <h1>Login</h1>
                 <div>
-                <input type="email" placeholder="E-mail"/>
+                <input type="email" placeholder="E-mail" 
+                onChange={(e) => setUsername(e.target.value)}/> {/*e - é o evento, target é oinput alvo, value - valor digitado */}
                 </div>
                 <div>
-                <input type="password" placeholder="Senha"/>
+                <input type="password" placeholder="Senha" 
+                onChange={(e) => setPassword(e.target.value)}/>
                 </div>
                 {/*checkbox para sis lembrar do usuário*/}
                 <div className="recall-forget">
