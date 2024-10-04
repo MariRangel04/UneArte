@@ -1,43 +1,62 @@
-import React from "react";
-import { useState } from "react";
-import "./login.css";{/*estilos*/}
-
+import React, { useState } from "react";
+import "./login.css"; 
 
 const Login = () => {
-    {/*constantes para salvar os dados - vai ectrair do useState*/}
-        const [username, setUsername] = useState("");
-        const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [errors, setErrors] = useState({}); 
 
-        const handleSubmit = () =>{
-            event.preventDefault();
-            console.log(username, password);
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        let newErrors = {}; {/*mensagem de erro*/}
 
-        };
+        if (!username) {
+            newErrors.username = "E-mail é obrigatório";
+        } else if (!/\S+@\S+\.\S+/.test(username)) {
+            newErrors.username = "E-mail inválido";
+        }
 
-    return(
+        if (!password) {
+            newErrors.password = "Senha é obrigatória";
+        } else if (password.length < 6) {
+            newErrors.password = "A senha deve ter no mínimo 6 caracteres";
+        }
+
+        if (Object.keys(newErrors).length === 0) {
+            {/*Se não houver erros, você pode prosseguir com o login*/}
+            console.log("Usuário:", username, "Senha:", password);
+        } else {
+           {/*Atualiza o estado com os erros*/}
+            setErrors(newErrors);
+        }
+    };
+
+    return (
         <div className="container">
-            {/*formulario para pegar email e senha usuário*/}
+            <h1>Login</h1>
             <form onSubmit={handleSubmit}>
-                <h1>Login</h1>
                 <div>
-                <input type="email" placeholder="E-mail" 
-                onChange={(e) => setUsername(e.target.value)}/> {/*e - é o evento, target é oinput alvo, value - valor digitado */}
+                    <input
+                        type="email"
+                        placeholder="E-mail"
+                        onChange={(e) => setUsername(e.target.value)}/>
+                    {errors.username && <span className="form-error">{errors.username}</span>}
                 </div>
                 <div>
-                <input type="password" placeholder="Senha" 
-                onChange={(e) => setPassword(e.target.value)}/>
+                    <input
+                        type="password"
+                        placeholder="Senha"
+                        onChange={(e) => setPassword(e.target.value)}/>
+                    {errors.password && <span className="form-error">{errors.password}</span>}
                 </div>
-                {/*checkbox para sis lembrar do usuário*/}
                 <div className="recall-forget">
-                    <lable>
+                    <label>
                         <input type="checkbox"/>
                         Lembre de mim
-                    </lable>
-                    {/*link redirecionando para recuperação de senha - routes */}
+                    </label>
                 </div>
                 <div>
                     <button type="submit">Entrar</button>
-                {/*link redirecionando para criação de uma conta - routes*/}
                 </div>
                 <div className="input-link">
                     <p>
@@ -46,7 +65,7 @@ const Login = () => {
                 </div>
             </form>
         </div>
-    )
-}
+    );
+};
 
-export default Login
+export default Login;
