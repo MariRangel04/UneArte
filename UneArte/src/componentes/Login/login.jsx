@@ -19,7 +19,7 @@ const Login = () => {
         if (!password) {
             newErrors.password = "Senha é obrigatória";
         } else if (password.length < 6) {
-            newErrors.password = "A senha deve ter no mínimo 6 caracteres";
+            newErrors.password = "Senha incorreta!";
         }
 
         if (Object.keys(newErrors).length === 0) {
