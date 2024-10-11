@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import axios from "axios"; 
 
 const Cadastro = () => {
     const [name, setName] = useState("");
@@ -8,10 +8,11 @@ const Cadastro = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState({}); 
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         let newErrors = {}; 
-        //validações cadastro
+
+        // Validações do formulário
         if (!name) {
             newErrors.name = "Nome é obrigatório";
         }
@@ -33,7 +34,17 @@ const Cadastro = () => {
         }
 
         if (Object.keys(newErrors).length === 0) {
-            console.log("Nome:", name, "E-mail:", email, "Senha:", password);
+            try {
+                // POST backend
+                const response = await axios.post('http://localhost:5000/api/auth/cadastro', {
+                    name,
+                    email,
+                    password
+                });
+                console.log('Usuário registrado com sucesso:', response.data);
+            } catch (error) {
+                console.error('Erro ao cadastrar usuário:', error.response.data);
+            }
         } else {
             setErrors(newErrors);
         }
