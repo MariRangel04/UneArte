@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";  
 import "./login.css"; 
+import { Link } from "react-router-dom";
+import logo2 from '../../assets/UneArte_logo2.png';
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -45,6 +47,11 @@ const Login = () => {
 
     return (
         <div className="container">
+            <Link to='/'>
+            <div className="logo">
+                <img src={logo2} alt="Logo UneArte"/>
+            </div>
+            </Link>
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -73,7 +80,7 @@ const Login = () => {
                 {message && <span className="form-message">{message}</span>} 
                 <div className="input-link">
                     <p>
-                        Não possui Cadastro? <a href="link">Crie sua conta</a>
+                        Não possui Cadastro? <Link to='/cadastro'>Clique aqui</Link>
                     </p>
                 </div>
             </form>

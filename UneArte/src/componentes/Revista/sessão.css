@@ -1,0 +1,27 @@
+.sessao-container {
+    display: flex; /* Usa Flexbox para layout */
+    align-items: flex-start; /* Alinha verticalmente os itens no início */
+    justify-content: space-between; /* Espaça os itens uniformemente */
+    padding: 20px; /* Espaçamento interno */
+}
+
+.texto-artigo {
+    flex: 1; /* Permite que o texto ocupe a maior parte do espaço */
+    margin-right: 20px; /* Espaçamento à direita do texto */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.h1 {
+    text-align: center; /* Centraliza o texto do título */
+    width: 100%; /* Garante que o h1 ocupe toda a largura disponível */
+}
+
+.imagem-artigo {
+    flex: 0 0 300px; /* Define uma largura fixa para a imagem */
+}
+
+.imagem-artigo img {
+    max-width: 100%; /* A imagem não ultrapassa a largura do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 8px; /* Bordas arredondadas, se desejado */
+}

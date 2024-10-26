@@ -1,0 +1,152 @@
+/* Reset básico */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #f1d9b5;
+}
+
+
+
+/* Estilos da Home */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f1d9b5;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo dos botões de cabeçalho */
+.header-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.header-buttons a {
+    text-decoration: none;
+}
+
+.header-buttons svg {
+    color: #343575;
+    transition: color 0.3s ease;
+}
+
+.header-buttons svg:hover {
+    color: #ab3fbb; /* Cor ao passar o mouse sobre o ícone */
+}
+
+/* Estilo do logo */
+.logo img {
+    width: 100px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+/* Estilizando o carrossel */
+.carousel {
+    max-width: 100%; /* Usa toda a largura disponível */
+    margin: 20px auto; /* Centraliza o carrossel na página */
+}
+
+.carousel .slide img {
+    max-height: 350px; /* Limita a altura máxima das imagens */
+    width: 100%; /* Garante que a imagem ocupe a largura disponível */
+    object-fit: cover; /* Ajusta a imagem sem distorcer */
+    border-radius: 10px; /* Bordas arredondadas nas imagens */
+}
+
+/* Estilizando o carrossel de vídeos */
+.carousel video {
+    max-height: 350px; /* Altura máxima do vídeo */
+    width: 100%; /* Ocupa 100% da largura disponível */
+    object-fit: cover; /* Ajusta o vídeo para cobrir o espaço sem distorcer */
+    border-radius: 10px; /* Bordas arredondadas nos vídeos */
+    margin: auto; /* Centraliza o vídeo no slide */
+}
+
+/* Removendo a legenda do carrossel */
+.carousel .legend {
+    display: none; /* Esconde as descrições das imagens */
+}
+
+/* Estilo do link para Sessões */
+.session-link {
+    margin-top: 20px; /* Espaçamento superior para o botão */
+    text-align: center; /* Centraliza o botão */
+}
+
+.btn-ver-sessao {
+    background-color: #343575;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ver-sessao:hover {
+    background-color: #ab3fbb; /* Cor ao passar o mouse sobre o botão */
+}
+
+/* Estilos do rodapé */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px 0;
+    background-color: #ffffff;
+    border-radius: 15px; /* Adiciona bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra para destaque */
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+.image-links-section {
+    display: flex;                 /* Usa Flexbox para layout */
+    justify-content: space-around; /* Espaça as imagens uniformemente */
+    flex-wrap: wrap;              /* Permite que as imagens quebrem linha se necessário */
+    margin: 20px 0;              /* Margem acima e abaixo da seção */
+}
+
+.image-item {
+    flex: 1 1 30%;                /* Cada imagem ocupa 30% da largura, pode ajustar conforme necessário */
+    max-width: 150px;             /* Largura máxima para as imagens */
+    text-align: center;           /* Centraliza o texto abaixo da imagem */
+    margin: 10px;                 /* Margem ao redor de cada item */
+}
+
+.image-link {
+    width: 100%;                  /* As imagens ocupam 100% do espaço do item */
+    height: auto;                 /* Mantém a proporção da imagem */
+    border-radius: 8px;           /* Adiciona borda arredondada */
+    transition: transform 0.3s;   /* Transição suave para hover */
+}
+
+.image-link:hover {
+    transform: scale(1.05);       /* Efeito de zoom ao passar o mouse */
+}
+
+.section-description {
+    text-align: center;           /* Centraliza a descrição */
+    margin-bottom: 20px;          /* Margem abaixo da descrição */
+}
+
+.image-title {
+    font-size: 14px;             /* Tamanho da fonte do título */
+    color: #343575;              /* Cor do texto */
+    margin-top: 5px;            /* Margem acima do título */
+    text-align: center;          /* Centraliza o título */
+}

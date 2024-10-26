@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-import axios from "axios"; 
+import axios from "axios";
+import { Link } from "react-router-dom";
+import logo2 from '../../assets/UneArte_logo2.png';
+
 
 const Cadastro = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [errors, setErrors] = useState({}); 
+    const [errors, setErrors] = useState({});
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        let newErrors = {}; 
+        let newErrors = {};
 
         // Validações do formulário
         if (!name) {
@@ -52,6 +55,11 @@ const Cadastro = () => {
 
     return (
         <div className="container">
+            <Link to="/">
+            <div className="logo">
+                <img src={logo2} alt='Logo UneArte'/>
+            </div>
+            </Link>
             <h1>Cadastro</h1>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -87,7 +95,7 @@ const Cadastro = () => {
                 </div>
                 <div className="input-link">
                     <p>
-                        Já possui uma conta? <a href="link">Faça login</a>
+                        Já possui uma conta? <Link to='/login'>Faça Login</Link>
                     </p>
                 </div>
             </form>
