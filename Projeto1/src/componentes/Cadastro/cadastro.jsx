@@ -3,9 +3,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom"; // Importando o useNavigate
 import './cadastro.css';
 import { Link } from "react-router-dom";
-import logo2 from '../../assets/UneArte_logo2.png';
 import { FaInstagram, FaTiktok } from 'react-icons/fa';
 import { MdEmail } from "react-icons/md";
+import img1 from '../../assets/musseu_arte.jpg'; // Caminho da imagem do artigo
+import logo2 from '../../assets/UneArte_logo2.png'; // Caminho da logo
 
 const Cadastro = () => {
     const [name, setName] = useState("");

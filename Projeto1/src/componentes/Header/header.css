@@ -1,0 +1,66 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    height: 60px;
+}
+
+.search-form {
+    flex-grow: 1;
+    margin: 0 20px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.header-buttons a, .header-buttons button {
+    margin-left: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.logout-button {
+    background-color: #343575; 
+    color: #343575; 
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid #343575;
+    border-radius: 50px; 
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 10px; 
+}
+
+.logout-button:hover {
+    background-color: #343575; 
+    color: #fff;
+}
+.logout-button:focus {
+    outline: none; 
+}
