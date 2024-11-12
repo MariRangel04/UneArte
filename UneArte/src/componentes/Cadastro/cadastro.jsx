@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"; // Importando o useNavigate
+import './cadastro.css';
 import { Link } from "react-router-dom";
 import logo2 from '../../assets/UneArte_logo2.png';
-
+import { FaInstagram, FaTiktok } from 'react-icons/fa';
+import { MdEmail } from "react-icons/md";
 
 const Cadastro = () => {
     const [name, setName] = useState("");
@@ -10,6 +13,7 @@ const Cadastro = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState({});
+    const navigate = useNavigate(); // Instanciando o useNavigate
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -45,6 +49,9 @@ const Cadastro = () => {
                     password
                 });
                 console.log('Usuário registrado com sucesso:', response.data);
+                
+                // Redireciona para a página Home após o cadastro
+                navigate("/");
             } catch (error) {
                 console.error('Erro ao cadastrar usuário:', error.response.data);
             }
@@ -55,50 +62,60 @@ const Cadastro = () => {
 
     return (
         <div className="container">
-            <Link to="/">
-            <div className="logo">
-                <img src={logo2} alt='Logo UneArte'/>
+            <div className="cadastro-container">
+                <div className="cadastro-circle">
+                    <h1>Cadastro</h1>
+                    <form onSubmit={handleSubmit}>
+                        <div>
+                            <input
+                                type="text"
+                                placeholder="Nome"
+                                onChange={(e) => setName(e.target.value)} />
+                            {errors.name && <span className="form-error">{errors.name}</span>}
+                        </div>
+                        <div>
+                            <input
+                                type="email"
+                                placeholder="E-mail"
+                                onChange={(e) => setEmail(e.target.value)} />
+                            {errors.email && <span className="form-error">{errors.email}</span>}
+                        </div>
+                        <div>
+                            <input
+                                type="password"
+                                placeholder="Senha"
+                                onChange={(e) => setPassword(e.target.value)} />
+                            {errors.password && <span className="form-error">{errors.password}</span>}
+                        </div>
+                        <div>
+                            <input
+                                type="password"
+                                placeholder="Confirmar Senha"
+                                onChange={(e) => setConfirmPassword(e.target.value)} />
+                            {errors.confirmPassword && <span className="form-error">{errors.confirmPassword}</span>}
+                        </div>
+                        <div>
+                            <button type="submit">Cadastrar</button>
+                        </div>
+                        <div className="input-link">
+                            <p>
+                                Já possui uma conta? <Link to='/login'>Faça Login</Link>
+                            </p>
+                        </div>
+                    </form>
+                </div>
             </div>
-            </Link>
-            <h1>Cadastro</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <input
-                        type="text"
-                        placeholder="Nome"
-                        onChange={(e) => setName(e.target.value)} />
-                    {errors.name && <span className="form-error">{errors.name}</span>}
-                </div>
-                <div>
-                    <input
-                        type="email"
-                        placeholder="E-mail"
-                        onChange={(e) => setEmail(e.target.value)} />
-                    {errors.email && <span className="form-error">{errors.email}</span>}
-                </div>
-                <div>
-                    <input
-                        type="password"
-                        placeholder="Senha"
-                        onChange={(e) => setPassword(e.target.value)} />
-                    {errors.password && <span className="form-error">{errors.password}</span>}
-                </div>
-                <div>
-                    <input
-                        type="password"
-                        placeholder="Confirmar Senha"
-                        onChange={(e) => setConfirmPassword(e.target.value)} />
-                    {errors.confirmPassword && <span className="form-error">{errors.confirmPassword}</span>}
-                </div>
-                <div>
-                    <button type="submit">Cadastrar</button>
-                </div>
-                <div className="input-link">
-                    <p>
-                        Já possui uma conta? <Link to='/login'>Faça Login</Link>
-                    </p>
-                </div>
-            </form>
+            <footer className="footer">
+                <a href="https://www.instagram.com/idealunearte" target="_blank" rel="noopener noreferrer">
+                    <FaInstagram size={24} style={{ margin: '0 8px', color: '#343575' }} />
+                </a>
+                <a href="https://www.tiktok.com/@idealunearte" target="_blank" rel="noopener noreferrer">
+                    <FaTiktok size={24} style={{ margin: '0 8px', color: '#343575' }} />
+                </a>
+                <a href="mailto:uneartecontato@gmail.com">
+                    <MdEmail size={24} style={{ margin: '0 8px', color: '#343575' }} />
+                </a>
+            </footer>
         </div>
     );
 };

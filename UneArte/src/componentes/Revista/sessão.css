@@ -25,3 +25,49 @@
     height: auto; /* Mantém a proporção da imagem */
     border-radius: 8px; /* Bordas arredondadas, se desejado */
 }
+
+.comentarios {
+    margin-top: 20px;
+}
+
+.comentarios h2 {
+    margin-bottom: 10px;
+}
+
+.comentarios textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.comentarios button {
+    background-color: #343575;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.lista-comentarios {
+    margin-top: 15px;
+}
+
+.comentario {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.comentario button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right; /* Alinha o botão de deletar à direita */
+}
