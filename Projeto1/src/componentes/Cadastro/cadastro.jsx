@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Importando o useNavigate
+import { useNavigate } from "react-router-dom"; 
 import './cadastro.css';
 import { Link } from "react-router-dom";
 import { FaInstagram, FaTiktok } from 'react-icons/fa';
 import { MdEmail } from "react-icons/md";
-import img1 from '../../assets/musseu_arte.jpg'; // Caminho da imagem do artigo
-import logo2 from '../../assets/UneArte_logo2.png'; // Caminho da logo
+import img1 from '../../assets/musseu_arte.jpg'; 
+import logo2 from '../../assets/UneArte_logo2.png'; 
 
 const Cadastro = () => {
     const [name, setName] = useState("");
@@ -14,7 +14,7 @@ const Cadastro = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState({});
-    const navigate = useNavigate(); // Instanciando o useNavigate
+    const navigate = useNavigate(); 
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -43,15 +43,13 @@ const Cadastro = () => {
 
         if (Object.keys(newErrors).length === 0) {
             try {
-                // POST backend
                 const response = await axios.post('http://localhost:5000/api/auth/cadastro', {
                     name,
                     email,
                     password
                 });
                 console.log('Usuário registrado com sucesso:', response.data);
-                
-                // Redireciona para a página Home após o cadastro
+
                 navigate("/");
             } catch (error) {
                 console.error('Erro ao cadastrar usuário:', error.response.data);

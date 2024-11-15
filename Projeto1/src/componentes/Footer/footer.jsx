@@ -24,12 +24,6 @@ const Footer = () => {
                     </a>
                 </div>
             </div>
-
-            <div className="footer-links">
-                <Link to="/sessao1">Sessão 1</Link>
-                <Link to="/sessao2">Sessão 2</Link>
-                <Link to="/sessao3">Sessão 3</Link>
-            </div>
         </footer>
     );
 };

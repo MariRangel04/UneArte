@@ -1,12 +1,12 @@
 .cadastro-container {
     display: flex;
-    justify-content: flex-end; /* Alinha à direita */
+    justify-content: flex-end; 
     align-items: center;
     height: 100vh;
     background-image: url("../../assets/musseu_arte3.jpg");
     background-size: cover;
     background-position: center;
-    padding-right: 20px; /* Adiciona espaço à direita */
+    padding-right: 20px; 
 }
 
 .cadastro-circle {
@@ -22,7 +22,7 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
-    margin-right: 20px; /* Adiciona margem à direita */
+    margin-right: 20px; 
 }
 
 /* logo */
@@ -53,18 +53,18 @@
     font-size: 1em;
     border-radius: 5px;
     border: 1px solid #ccc;
-    width: 100%; /* Faz os campos de input ocuparem toda a largura do container */
-    box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+    width: 100%; 
+    box-sizing: border-box; 
 }
 
 /* Estilo do botão */
 .cadastro-circle button {
-    padding: 10px 30px;  /* Aumente o padding horizontal para garantir que o botão tenha espaço suficiente */
+    padding: 10px 30px;  
     font-size: 1em;
     background-color: #000000;
     color: #ffffff;
     border: none;
-    border-radius: 50px; /* Faz o botão redondo */
+    border-radius: 50px; 
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -89,6 +89,6 @@
     display: flex;
     justify-content: center;
     padding: 20px;
-    background-color: #fafafa; /* Exemplo de cor de fundo */
-    color: white; /* Exemplo de cor de texto */
+    background-color: #fafafa; 
+    color: white; 
 }

@@ -16,7 +16,7 @@ router.post('/cadastro', async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({ name, email, password: hashedPassword });
         await newUser.save();
-        //retorno da aplicação
+        //retorno 
         res.status(201).json({ message: 'Usuário registrado com sucesso' });
     } catch (error) {
         console.error('Erro ao registrar usuário:', error);

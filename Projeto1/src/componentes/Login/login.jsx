@@ -1,23 +1,23 @@
 import React, { useState } from "react";
-import axios from "axios";  
-import "./login.css"; 
+import axios from "axios";
+import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUserPlus, FaInstagram, FaTiktok } from 'react-icons/fa';
 import { RiLoginCircleLine } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
-import img1 from '../../assets/musseu_arte.jpg'; 
-import logo2 from '../../assets/UneArte_logo2.png'; 
+import img1 from '../../assets/musseu_arte.jpg';
+import logo2 from '../../assets/UneArte_logo2.png';
 
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState({}); 
-    const [message, setMessage] = useState(""); 
-    const navigate = useNavigate(); 
+    const [errors, setErrors] = useState({});
+    const [message, setMessage] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        let newErrors = {}; 
+        let newErrors = {};
 
         if (!username) {
             newErrors.username = "E-mail é obrigatório";
@@ -34,7 +34,7 @@ const Login = () => {
         if (Object.keys(newErrors).length === 0) {
             try {
                 const response = await axios.post('http://localhost:5000/api/auth/login', {
-                    email: username, 
+                    email: username,
                     password: password
                 });
 
@@ -43,10 +43,10 @@ const Login = () => {
 
                 localStorage.setItem('authToken', response.data.token);
 
-                navigate("/"); 
+                navigate("/");
             } catch (error) {
                 console.error('Erro ao fazer login:', error.response?.data);
-                setMessage(error.response?.data.message || "Erro ao fazer login"); 
+                setMessage(error.response?.data.message || "Erro ao fazer login");
             }
         } else {
             setErrors(newErrors);
@@ -56,7 +56,7 @@ const Login = () => {
     return (
         <div className="container">
             <div className="login-container">
-                <div className="login-circle"> 
+                <div className="login-circle">
                     <h1>Login</h1>
                     <form onSubmit={handleSubmit}>
                         <div>
@@ -82,7 +82,7 @@ const Login = () => {
                         <div>
                             <button type="submit">Entrar</button>
                         </div>
-                        {message && <span className="form-message">{message}</span>} 
+                        {message && <span className="form-message">{message}</span>}
                         <div className="input-link">
                             <p>
                                 Não possui Cadastro? <Link to='/cadastro'>Clique aqui</Link>
